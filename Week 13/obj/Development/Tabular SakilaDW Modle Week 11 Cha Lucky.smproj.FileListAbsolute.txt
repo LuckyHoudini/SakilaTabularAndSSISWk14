@@ -1,0 +1,8 @@
+C:\Users\Administrator\source\repos\Tabular SakilaDW Modle Week 11 Cha Lucky\bin\Model.asdatabase
+C:\Users\Administrator\source\repos\Tabular SakilaDW Modle Week 11 Cha Lucky\bin\Model.deploymenttargets
+C:\Users\Administrator\source\repos\Tabular SakilaDW Modle Week 11 Cha Lucky\bin\Model.deploymentoptions
+C:\Users\Administrator\source\repos\Tabular SakilaDW Modle Week 11 Cha Lucky\obj\Development\Tabular SakilaDW Modle Week 11 Cha Lucky.smproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\Tabular SakilaDW Modle Week 11 Cha Lucky\obj\Development\Tabular SakilaDW Modle Week 11 Cha Lucky.smproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\Tabular SakilaDW Modle Week 11 Cha Lucky\obj\Development\Model.asdatabase
+C:\Users\Administrator\source\repos\Tabular SakilaDW Modle Week 11 Cha Lucky\obj\Development\Model.deploymentoptions
+C:\Users\Administrator\source\repos\Tabular SakilaDW Modle Week 11 Cha Lucky\obj\Development\Model.deploymenttargets

@@ -1,0 +1,8 @@
+C:\Users\Administrator\source\repos\Week 12 Sakila Tublar\obj\Development\Week 12 Sakila Tublar.smproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\Week 12 Sakila Tublar\obj\Development\Week 12 Sakila Tublar.smproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\Week 12 Sakila Tublar\bin\Week13 Sakila Tabular Project.asdatabase
+C:\Users\Administrator\source\repos\Week 12 Sakila Tublar\bin\Week13 Sakila Tabular Project.deploymenttargets
+C:\Users\Administrator\source\repos\Week 12 Sakila Tublar\bin\Week13 Sakila Tabular Project.deploymentoptions
+C:\Users\Administrator\source\repos\Week 12 Sakila Tublar\obj\Development\Week13 Sakila Tabular Project.asdatabase
+C:\Users\Administrator\source\repos\Week 12 Sakila Tublar\obj\Development\Week13 Sakila Tabular Project.deploymentoptions
+C:\Users\Administrator\source\repos\Week 12 Sakila Tublar\obj\Development\Week13 Sakila Tabular Project.deploymenttargets

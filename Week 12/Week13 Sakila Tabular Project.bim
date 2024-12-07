@@ -1,0 +1,456 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/ETL5;SakilaDW",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "ETL5",
+            "database": "SakilaDW"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "Windows",
+          "kind": "SQL",
+          "path": "etl5;SakilaDW",
+          "Username": "T-ETL5\\Administrator",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "DimCategory",
+        "columns": [
+          {
+            "name": "CategoryID",
+            "dataType": "int64",
+            "sourceColumn": "CategoryID"
+          },
+          {
+            "name": "CategoryName",
+            "dataType": "string",
+            "sourceColumn": "CategoryName"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ETL5;SakilaDW\",",
+                "    dbo_DimCategory = Source{[Schema=\"dbo\",Item=\"DimCategory\"]}[Data]",
+                "in",
+                "    dbo_DimCategory"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimDate",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "DateID",
+            "dataType": "int64",
+            "sourceColumn": "DateID"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year"
+          },
+          {
+            "name": "MonthNumber",
+            "dataType": "int64",
+            "sourceColumn": "MonthNumber"
+          },
+          {
+            "name": "MonthName",
+            "dataType": "string",
+            "sourceColumn": "MonthName"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ETL5;SakilaDW\",",
+                "    dbo_DimDate = Source{[Schema=\"dbo\",Item=\"DimDate\"]}[Data]",
+                "in",
+                "    dbo_DimDate"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "levels": [
+              {
+                "name": "Year",
+                "ordinal": 0,
+                "column": "Year"
+              },
+              {
+                "name": "Quarter",
+                "ordinal": 1,
+                "column": "Quarter"
+              },
+              {
+                "name": "MonthName",
+                "ordinal": 2,
+                "column": "MonthName"
+              },
+              {
+                "name": "Date",
+                "ordinal": 3,
+                "column": "Date"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DimCustomer",
+        "columns": [
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerID"
+          },
+          {
+            "name": "FirstName",
+            "dataType": "string",
+            "sourceColumn": "FirstName"
+          },
+          {
+            "name": "LastName",
+            "dataType": "string",
+            "sourceColumn": "LastName"
+          },
+          {
+            "name": "Email",
+            "dataType": "string",
+            "sourceColumn": "Email"
+          },
+          {
+            "name": "Address",
+            "dataType": "string",
+            "sourceColumn": "Address"
+          },
+          {
+            "name": "CityName",
+            "dataType": "string",
+            "sourceColumn": "CityName"
+          },
+          {
+            "name": "CountryName",
+            "dataType": "string",
+            "sourceColumn": "CountryName"
+          },
+          {
+            "name": "Active",
+            "dataType": "boolean",
+            "sourceColumn": "Active"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ETL5;SakilaDW\",",
+                "    dbo_DimCustomer = Source{[Schema=\"dbo\",Item=\"DimCustomer\"]}[Data]",
+                "in",
+                "    dbo_DimCustomer"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimFilm",
+        "columns": [
+          {
+            "name": "FilmID",
+            "dataType": "int64",
+            "sourceColumn": "FilmID"
+          },
+          {
+            "name": "Title",
+            "dataType": "string",
+            "sourceColumn": "Title"
+          },
+          {
+            "name": "ReleaseYear",
+            "dataType": "int64",
+            "sourceColumn": "ReleaseYear"
+          },
+          {
+            "name": "RentalRate",
+            "dataType": "double",
+            "sourceColumn": "RentalRate"
+          },
+          {
+            "name": "Length",
+            "dataType": "int64",
+            "sourceColumn": "Length"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ETL5;SakilaDW\",",
+                "    dbo_DimFilm = Source{[Schema=\"dbo\",Item=\"DimFilm\"]}[Data]",
+                "in",
+                "    dbo_DimFilm"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimLanguage",
+        "columns": [
+          {
+            "name": "LanguageID",
+            "dataType": "int64",
+            "sourceColumn": "LanguageID"
+          },
+          {
+            "name": "LanguageName",
+            "dataType": "string",
+            "sourceColumn": "LanguageName"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ETL5;SakilaDW\",",
+                "    dbo_DimLanguage = Source{[Schema=\"dbo\",Item=\"DimLanguage\"]}[Data]",
+                "in",
+                "    dbo_DimLanguage"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimStore",
+        "columns": [
+          {
+            "name": "StoreID",
+            "dataType": "int64",
+            "sourceColumn": "StoreID"
+          },
+          {
+            "name": "StoreName",
+            "dataType": "string",
+            "sourceColumn": "StoreName"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ETL5;SakilaDW\",",
+                "    dbo_DimStore = Source{[Schema=\"dbo\",Item=\"DimStore\"]}[Data]",
+                "in",
+                "    dbo_DimStore"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactRental",
+        "columns": [
+          {
+            "name": "RentalID",
+            "dataType": "int64",
+            "sourceColumn": "RentalID"
+          },
+          {
+            "name": "FilmID",
+            "dataType": "int64",
+            "sourceColumn": "FilmID"
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerID"
+          },
+          {
+            "name": "StoreID",
+            "dataType": "int64",
+            "sourceColumn": "StoreID"
+          },
+          {
+            "name": "RentalDateID",
+            "dataType": "int64",
+            "sourceColumn": "RentalDateID"
+          },
+          {
+            "name": "ReturnDateID",
+            "dataType": "int64",
+            "sourceColumn": "ReturnDateID"
+          },
+          {
+            "name": "PaymentAmount",
+            "dataType": "double",
+            "sourceColumn": "PaymentAmount"
+          },
+          {
+            "name": "RentalDuration",
+            "dataType": "int64",
+            "sourceColumn": "RentalDuration"
+          },
+          {
+            "name": "RentalCount",
+            "dataType": "int64",
+            "sourceColumn": "RentalCount"
+          },
+          {
+            "name": "ReturnDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ReturnDate"
+          },
+          {
+            "name": "StaffID",
+            "dataType": "int64",
+            "sourceColumn": "StaffID"
+          },
+          {
+            "name": "LanguageID",
+            "dataType": "int64",
+            "sourceColumn": "LanguageID"
+          },
+          {
+            "name": "CategoryID",
+            "dataType": "int64",
+            "sourceColumn": "CategoryID"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ETL5;SakilaDW\",",
+                "    dbo_FactRental = Source{[Schema=\"dbo\",Item=\"FactRental\"]}[Data]",
+                "in",
+                "    dbo_FactRental"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "8b4660d5-85cb-4131-85f6-32141cdfcc8c",
+        "fromTable": "FactRental",
+        "fromColumn": "ReturnDateID",
+        "toTable": "DimDate",
+        "toColumn": "DateID",
+        "isActive": false
+      },
+      {
+        "name": "baaa512c-73f1-4981-9d6f-fb8f4281f09c",
+        "fromTable": "FactRental",
+        "fromColumn": "CategoryID",
+        "toTable": "DimCategory",
+        "toColumn": "CategoryID"
+      },
+      {
+        "name": "b6035014-2ae6-4d81-9dd2-095218108aa5",
+        "fromTable": "FactRental",
+        "fromColumn": "RentalDateID",
+        "toTable": "DimDate",
+        "toColumn": "DateID"
+      },
+      {
+        "name": "6f23d7cf-0491-4785-b14f-4812dd4dc5fb",
+        "fromTable": "FactRental",
+        "fromColumn": "CustomerID",
+        "toTable": "DimCustomer",
+        "toColumn": "CustomerID"
+      },
+      {
+        "name": "95b30017-63aa-46d7-8ec9-e39bebbbef8a",
+        "fromTable": "FactRental",
+        "fromColumn": "FilmID",
+        "toTable": "DimFilm",
+        "toColumn": "FilmID"
+      },
+      {
+        "name": "44d1ab6a-4723-4f23-955f-1244620b0286",
+        "fromTable": "FactRental",
+        "fromColumn": "LanguageID",
+        "toTable": "DimLanguage",
+        "toColumn": "LanguageID"
+      },
+      {
+        "name": "914aac4c-fed3-42f6-8792-f9a13248d213",
+        "fromTable": "FactRental",
+        "fromColumn": "StoreID",
+        "toTable": "DimStore",
+        "toColumn": "StoreID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "700"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
